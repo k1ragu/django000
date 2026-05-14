@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <!-- Section 1: Vibrant Header -->
+    <div class="text-center mb-5">
+        <span
+            class="badge rounded-pill bg-primary bg-opacity-25 text-primary mb-2 px-3 border border-primary border-opacity-25">PREMIER
+            LEAGUE 2026</span>
+        <h1 class="display-4 fw-bold text-uppercase tracking-widest">Global Franchises</h1>
+        <p class="opacity-75 mx-auto" style="max-width: 600px;">Explore the elite clubs currently registered in the
+            Sports Management System. Real-time stats and roster availability enabled.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+        {% for team in teams %}
+        <div class="col-lg-4 col-md-6">
+            <!-- The Glass Card starts here -->
+            <div class="glass-team-card p-4 h-100">
+                <div class="text-center">
+                    <div class="team-emblem-wrap mb-3">
+                        <i class="bi bi-shield-check text-primary display-3"></i>
+                    </div>
+
+                    <!-- This pulls 'name' from your Team model -->
+                    <h2 class="h4 fw-bold">{{ team.name }}</h2>
+                    <p class="small text-uppercase opacity-50 tracking-widest">Coach: {{ team.coach }}</p>
+
+                    <div class="row g-2 my-3 text-center">
+                        <div class="col-4 border-end border-white border-opacity-10">
+                            <div class="fw-bold text-success">{{ team.wins }}</div>
+                            <div class="extra-small opacity-50">WINS</div>
+                        </div>
+                        <div class="col-4 border-end border-white border-opacity-10">
+                            <div class="fw-bold text-danger">{{ team.losses }}</div>
+                            <div class="extra-small opacity-50">LOSSES</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="fw-bold">#{{ team.rank }}</div>
+                            <div class="extra-small opacity-50">RANK</div>
+                        </div>
+                    </div>
+
+                    <p class="small opacity-75 mb-3">{{ team.description }}</p>
+
+                    <button class="btn btn-glass w-100 rounded-pill mt-auto">View Roster</button>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <!-- If you haven't added anything in Admin yet -->
+        <div class="col-12 text-center py-5">
+            <p class="opacity-50">No teams found. Add some in the Admin panel!</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}

@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <!-- Header Section -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-uppercase tracking-widest">About the Project</h1>
+        <div class="mx-auto bg-white opacity-25" style="height: 2px; width: 100px;"></div>
+    </div>
+
+    <!-- Main Content Split -->
+    <div class="row align-items-center g-5 mb-5">
+        <div class="col-lg-6">
+            <h2 class="h3 fw-bold mb-4">Our Mission</h2>
+            <p class="lead opacity-75">
+                The Sports Management System is designed to bridge the gap between complex data and intuitive design. 
+                Whether you are tracking league standings for your local club or managing high-stakes match fixtures, 
+                this platform provides a clean, focused environment.
+            </p>
+            <p class="opacity-75">
+                Built with <strong>Django 6.0</strong> and <strong>Bootstrap 5</strong>, this system focuses on 
+                speed, security, and a premium user experience that rivals modern tech interfaces.
+            </p>
+        </div>
+        <div class="col-lg-6">
+            <div class="p-4 btn-glass border-0 text-center rounded-4 shadow-lg">
+                <i class="bi bi-code-square display-1 mb-3 d-block opacity-50"></i>
+                <p class="fst-italic">"Turning raw sports data into actionable insights through modern web architecture."</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature/Tech Pillars Grid -->
+    <div class="row g-4 mt-2">
+        <div class="col-md-4">
+            <div class="p-4 btn-glass h-100 border-0 rounded-4 text-center transition-hover">
+                <i class="bi bi-lightning-charge-fill h1 mb-3 d-block text-warning"></i>
+                <h3 class="h5 fw-bold">Real-time Performance</h3>
+                <p class="small opacity-75">Optimized backend logic to handle rapid updates during match days.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-4 btn-glass h-100 border-0 rounded-4 text-center transition-hover">
+                <i class="bi bi-shield-lock-fill h1 mb-3 d-block text-info"></i>
+                <h3 class="h5 fw-bold">Secure Management</h3>
+                <p class="small opacity-75">Robust authentication ensuring your team data remains private and protected.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-4 btn-glass h-100 border-0 rounded-4 text-center transition-hover">
+                <i class="bi bi-palette-fill h1 mb-3 d-block text-danger"></i>
+                <h3 class="h5 fw-bold">Glass UI Design</h3>
+                <p class="small opacity-75">A sophisticated aesthetic inspired by high-end mobile operating systems.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Dashboard CTA -->
+    <div class="text-center mt-5 pt-4">
+        <a href="{% url 'home' %}" class="btn btn-glass-nav px-5 py-3 rounded-pill fw-bold">
+            <i class="bi bi-arrow-left me-2"></i>Return to Dashboard
+        </a>
+    </div>
+</div>
+
+<style>
+    .transition-hover {
+        transition: all 0.3s ease;
+    }
+    .transition-hover:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.15) !important;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+    .tracking-widest { letter-spacing: 6px; }
+</style>
+
+
+
+
+<div class="container my-5">
+    <!-- Topic Container -->
+    <div class="text-center">
+        <h2 class="display-4 fw-bold text-uppercase tracking-widest text-white mb-2">
+            Explore <span class="text-success">Cars;</span>
+        </h2>
+        <!-- Stylish Underline -->
+        <div class="bg-success bg-opacity-50 mx-auto rounded-pill" style="height: 4px; width: 80px;"></div>
+        <p class="text-secondary mt-3 lead">A deep dive into Mechanical Creatures Known As Cars.</p>
+    </div>
+</div>
+
+
+<div class="container">
+    {% for player in players %}
+
+    <h1>{{player.name}}</h1>
+    <h4>{{player.yop}}</h4>
+    <p>{{player.description}}</p>
+    <hr>
+
+    {% endfor %}
+
+</div>
+
+<div class="container my-5">
+    <!-- Topic Container -->
+    <div class="text-center">
+        <h2 class="display-4 fw-bold text-uppercase tracking-widest text-white mb-2">
+            Explore <span class="text-success">Animals;</span>
+        </h2>
+        <!-- Stylish Underline -->
+        <div class="bg-success bg-opacity-50 mx-auto rounded-pill" style="height: 4px; width: 80px;"></div>
+        <p class="text-secondary mt-3 lead">Get More Fascinating Facts About Animals!</p>
+    </div>
+</div>
+
+
+<div class="container">
+    {% for interest in animals %}
+
+    <h1>{{interest.name}}</h1>
+    <h4>{{interest.AnimalColor}}</h4>
+    <p>{{interest.description}}</p>
+    <hr>
+
+    {% endfor %}
+
+</div>
+
+
+
+<div class="container my-5">
+    <!-- Topic Container -->
+    <div class="text-center">
+        <h2 class="display-4 fw-bold text-uppercase tracking-widest text-white mb-2">
+            Explore <span class="text-success">Plants;</span>
+        </h2>
+        <!-- Stylish Underline -->
+        <div class="bg-success bg-opacity-50 mx-auto rounded-pill" style="height: 4px; width: 80px;"></div>
+        <p class="text-secondary mt-3 lead">Get More Fascinating Facts About Plants Such As Marijuana!</p>
+    </div>
+</div>
+
+
+
+<div class="container">
+    {% for interest in plants %}
+
+    <h1>{{interest.name}}</h1>
+    <h4>{{interest.PlantType}}</h4>
+    <p>{{interest.description}}</p>
+    <hr>
+
+    {% endfor %}
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
